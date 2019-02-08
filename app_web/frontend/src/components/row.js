@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Modal, Button } from 'react-bootstrap';
-
+import jsPDF from 'jspdf';
 
 class Row extends Component {
         state = {
@@ -13,6 +13,18 @@ class Row extends Component {
     
       handleShow = () => {
         this.setState({ show: true });
+      }
+
+      handleSubmit = () => {
+        const doc = new jsPDF();
+        doc.text('Id:' + this.props.alert.id, 10, 10);
+        doc.text('Category:' + this.props.alert.category, 10, 20);
+        doc.text('Score:' + this.props.alert.score, 10, 30);
+        doc.text('Status:' + this.props.alert.status, 10, 40);
+        doc.text('Client:' + this.props.alert.client, 10, 50);
+        doc.text('Summary:' + this.props.alert.summary, 10, 60);
+        doc.text('Date:' + this.props.alert.date, 10, 70);        
+        doc.save('alert.pdf')
       }
     render() {
       return (
@@ -43,8 +55,8 @@ class Row extends Component {
             <Button variant="secondary" onClick={this.handleClose}>
               Close
             </Button>
-            <Button variant="primary" onClick={this.handleClose}>
-              Save Changes
+            <Button variant="primary" onClick={this.handleSubmit}>
+              Download
             </Button>
           </Modal.Footer>
         </Modal>
