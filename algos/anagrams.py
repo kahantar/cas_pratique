@@ -1,5 +1,4 @@
 #!/usr/bin/python
-import sys
 def anagrams(str1, str2):
     if len(str1) != len(str2):
         return False
@@ -11,5 +10,3 @@ def anagrams(str1, str2):
             return False
         i = i + 1
     return True
-
-print(anagrams(sys.argv[1], sys.argv[2]))
