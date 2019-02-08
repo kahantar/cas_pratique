@@ -8,7 +8,7 @@ git clone https://github.com/kahantar/cas_pratique.git
 
 Install postgresql and open it :
 ```
-apt-get install postgresql postgresql-cli
+apt-get install postgresql postgresql-client
 
 su - postgres
 
@@ -22,7 +22,7 @@ CREATE DATABASE database_development;
 
 Download the database:
 ```
-cd cas_pratique/backend
+cd app_web/backend
 
 npm i -g sequelize-cli
 
@@ -36,14 +36,14 @@ Launch the server (open 2 terminals):
 ```
 Terminal 1 :
 
-cd cas_pratique/backend
+cd app_web/backend
 npm install
 npm start
 
 
 Terminal 2 :
 
-cd cas_pratique/frontend
+cd app_web/frontend
 npm install
 npm start
 ```
